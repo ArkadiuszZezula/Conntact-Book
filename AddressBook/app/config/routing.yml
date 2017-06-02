@@ -1,0 +1,5 @@
+conntact_book:
+    resource: "@ConntactBookBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
