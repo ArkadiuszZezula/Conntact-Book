@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}All contacts{% endblock %}
+
+{% block body %}
+    <h1>All contacts</h1>
+        <a href="/new/"><h2>Create new contact</h2></a>
+
+    <ol>
+        {% for tweet in allContacts %}
+            <li> 
+                <a href="/{{tweet.id}}/"><h3>{{tweet.userName}}  {{tweet.userSurname}}</h3></a>
+                <a href="/{{tweet.id}}/modify/">Modify contact</a>
+                <a href="/{{tweet.id}}/delete/">Delete contact</a>
+            </li>
+        {% endfor %}
+    </ol>
+        
+{% endblock %}

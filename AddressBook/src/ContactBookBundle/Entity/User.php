@@ -1,6 +1,6 @@
 <?php
 
-namespace ConntactBookBundle\Entity;
+namespace ContactBookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="ConntactBookBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="ContactBookBundle\Repository\UserRepository")
  */
 class User
 {

@@ -1,5 +1,5 @@
-conntact_book:
-    resource: "@ConntactBookBundle/Controller/"
+contact_book:
+    resource: "@ContactBookBundle/Controller/"
     type:     annotation
     prefix:   /
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace ConntactBookBundle\Tests\Controller;
+namespace ContactBookBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

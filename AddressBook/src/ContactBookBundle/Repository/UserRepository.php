@@ -1,6 +1,6 @@
 <?php
 
-namespace ConntactBookBundle\Repository;
+namespace ContactBookBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    
+    public function findAll()
+    {
+        return $this->findBy(array(), array('userName' => 'ASC'));
+    }
+    
+    
 }
