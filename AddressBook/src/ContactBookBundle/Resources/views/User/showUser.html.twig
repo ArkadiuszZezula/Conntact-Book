@@ -16,6 +16,10 @@
         {{phone.number}}, {{phone.type}}<br>
         {% endif %}
         
+        {% if email != null %}
+        {{email.addressEmail}}, {{email.type}}<br>
+        {% endif %}
+        
     <br><a href="/{{contact.id}}/modify">Modify contact</a>
     <a href="/{{contact.id}}/delete">Delete contact</a><br>
     <a href="/">Show all contact</a>

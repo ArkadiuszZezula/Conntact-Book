@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactBook: Add/Update Email {% endblock %}
+
+{% block body %}
+    
+    <h1> Email </h1>
+        {{ form_start(formEmail)}}
+        {{ form_widget(formEmail)}}
+        {{ form_end(formEmail)}}<br>
+    
+    <a href="/">Show all contact</a>
+    
+{% endblock %}

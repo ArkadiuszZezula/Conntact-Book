@@ -57,6 +57,12 @@ class User
     */
     private $phones;
     
+    /**
+    * @ORM\ManyToOne(targetEntity="Email", inversedBy="users")
+    * @ORM\JoinColumn(name="email_id", referencedColumnName="id")
+    */
+    private $emails;
+    
 
     
     
@@ -187,5 +193,28 @@ class User
     public function getPhones()
     {
         return $this->phones;
+    }
+
+    /**
+     * Set emails
+     *
+     * @param \ContactBookBundle\Entity\Email $emails
+     * @return User
+     */
+    public function setEmails(\ContactBookBundle\Entity\Email $emails)
+    {
+        $this->emails = $emails;
+
+        return $this;
+    }
+
+    /**
+     * Get emails
+     *
+     * @return \ContactBookBundle\Entity\Email 
+     */
+    public function getEmails()
+    {
+        return $this->emails;
     }
 }
