@@ -45,11 +45,17 @@ class User
 
 
     
-     /**
+    /**
     * @ORM\ManyToOne(targetEntity="Address", inversedBy="users")
     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
     */
     private $address;
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="Phone", inversedBy="users")
+    * @ORM\JoinColumn(name="phone_id", referencedColumnName="id")
+    */
+    private $phones;
     
 
     
@@ -143,7 +149,7 @@ class User
      * @param \ContactBookBundle\Entity\Address $address
      * @return User
      */
-    public function setAddress(\ContactBookBundle\Entity\Address $address = null)
+    public function setAddress(\ContactBookBundle\Entity\Address $address)
     {
         $this->address = $address;
 
@@ -158,5 +164,28 @@ class User
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Set phones
+     *
+     * @param \ContactBookBundle\Entity\Phone $phones
+     * @return User
+     */
+    public function setPhones(\ContactBookBundle\Entity\Phone $phones)
+    {
+        $this->phones = $phones;
+
+        return $this;
+    }
+
+    /**
+     * Get phones
+     *
+     * @return \ContactBookBundle\Entity\Phone 
+     */
+    public function getPhones()
+    {
+        return $this->phones;
     }
 }

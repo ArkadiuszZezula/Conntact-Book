@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactBook: Update phone {% endblock %}
+
+{% block body %}
+    
+    <h1> Phone </h1>
+        {{ form_start(formPhone)}}
+        {{ form_widget(formPhone)}}
+        {{ form_end(formPhone)}}<br>
+    
+    <a href="/">Show all contact</a>
+    
+{% endblock %}

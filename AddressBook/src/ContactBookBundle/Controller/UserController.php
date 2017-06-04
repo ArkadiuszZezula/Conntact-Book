@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ContactBookBundle\Entity\User;
 use ContactBookBundle\Entity\Address;
+use ContactBookBundle\Entity\Phone;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -129,11 +130,12 @@ class UserController extends Controller
         $er = $this->getDoctrine()->getRepository("ContactBookBundle:User");
         $showContact = $er->find($id);
         $address = $showContact->getAddress();
+        $phone = $showContact->getPhones();
         if(!$showContact) {
             return new Response ("Contact isn't exist");
         }
         return $this->render('ContactBookBundle:User:showUser.html.twig', array(
-        "contact" => $showContact, "address" => $address
+        "contact" => $showContact, "address" => $address, "phone"=> $phone
         ));
     }
     
