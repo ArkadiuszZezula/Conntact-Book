@@ -5,6 +5,7 @@ namespace ContactBookBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ContactBookBundle\Entity\User;
+use ContactBookBundle\Entity\Address;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -82,18 +83,18 @@ class UserController extends Controller
             ->add("Modify contact ","submit")
             ->getForm();
         // update contact in DB
+        $form->handleRequest($request);
+        $modifyContact = $form->getData();
+        $idModifyContact = $modifyContact->getId();
         if ($request->getMethod() == "POST"){
-                $form->handleRequest($request);
-                $modifyContact = $form->getData();
-                $idModifyContact = $modifyContact->getId();
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($modifyContact);
-                $em->flush();
-                return $this->redirect("/$idModifyContact/");
-            }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($modifyContact);
+            $em->flush();
+            return $this->redirect("/$idModifyContact/");
+        }
         // return form to create form view 
-        return $this->render('ContactBookBundle:User:formUser.html.twig', array(
-        "form" => $form->createView(), "title" => "Modify Contact"
+        return $this->render('ContactBookBundle:User:formUserModify.html.twig', array(
+        "form" => $form->createView(), "title" => "Modify Contact", "id"=> $idModifyContact
         ));
     }
     
@@ -127,11 +128,12 @@ class UserController extends Controller
         //find contact in DB
         $er = $this->getDoctrine()->getRepository("ContactBookBundle:User");
         $showContact = $er->find($id);
+        $address = $showContact->getAddress();
         if(!$showContact) {
             return new Response ("Contact isn't exist");
         }
         return $this->render('ContactBookBundle:User:showUser.html.twig', array(
-        "contact" => $showContact
+        "contact" => $showContact, "address" => $address
         ));
     }
     

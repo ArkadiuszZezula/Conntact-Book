@@ -3,6 +3,7 @@
 namespace ContactBookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -43,6 +44,20 @@ class User
     private $userDescription;
 
 
+    
+     /**
+    * @ORM\ManyToOne(targetEntity="Address", inversedBy="users")
+    * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+    */
+    private $address;
+    
+
+    
+    
+    
+    
+    
+    
     /**
      * Get id
      *
@@ -120,5 +135,28 @@ class User
     public function getUserDescription()
     {
         return $this->userDescription;
+    }
+
+    /**
+     * Set address
+     *
+     * @param \ContactBookBundle\Entity\Address $address
+     * @return User
+     */
+    public function setAddress(\ContactBookBundle\Entity\Address $address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return \ContactBookBundle\Entity\Address 
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }

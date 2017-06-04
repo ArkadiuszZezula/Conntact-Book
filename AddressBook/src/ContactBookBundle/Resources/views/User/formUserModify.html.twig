@@ -3,12 +3,13 @@
 {% block title %}ContactBookBundle: {{title}} {% endblock %}
 
 {% block body %}
-
+    
     <h1> {{title}} </h1>
         {{ form_start(form)}}
         {{ form_widget(form)}}
         {{ form_end(form)}}<br>
     
+    <a href="/{{id}}/addAddress">Add/Modify Address</a><br>
     <a href="/">Show all contact</a>
     
 {% endblock %}
