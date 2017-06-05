@@ -1,4 +1,4 @@
 # Conntact-Book
 
 
-Application Library. Created using Symfony 2.8.
+Application Conntact-Book. Created using Symfony 2.8.
